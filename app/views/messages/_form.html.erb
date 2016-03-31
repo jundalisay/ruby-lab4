@@ -1,0 +1,9 @@
+<%= form_for(Message.new) do |f| %>
+    <div class="form-group">
+      <div class="form-group">
+        <label class="control-label">Message:</label>
+           <%= f.text_field(:content)%>
+
+      </div>
+    </div>
+<% end %>

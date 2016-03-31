@@ -1,4 +1,6 @@
-class HomeController < ApplicationController
+class MessagesController < ApplicationController
+  before_action :set_message, only: [:show, :edit, :update, :destroy]
+  
   def index
   	@messages = Message.all
   end
@@ -19,6 +21,11 @@ class HomeController < ApplicationController
   end
 
   private
+
+  def set_message # 'class method'
+      @message = Message.find(params[:id])
+    end
+
   def message_params
       params.require(:message).permit(:content, :user_id)
     end
